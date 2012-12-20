@@ -11,10 +11,9 @@ LDR::LDR(uint8 pin) {
 }
 
 short LDR::value(bool directValue) {
-  if ( directValue )
-    return(analogRead(_pin));
-  return (min(analogRead(_pin), 4040) / 15.9);
+  return directValue ? analogRead(_pin) : min(analogRead(_pin), 4040) / 15.9;
 }
+        
         
         
         
